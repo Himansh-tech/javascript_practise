@@ -1,0 +1,55 @@
+//This is snake, water, gun game where you will have 5 chances to win against computer.
+
+do{
+let rounds=5;//displays 5 chances to play against computer
+let score=0;
+//give your choice
+for(let i=1;i<=rounds;i++){
+    let choice=prompt("Choose any from snake, water or gun and write it in all small letters");
+
+    //Code to generate random snake, water or gun using math.random() and array
+    let aichoice= ['snake', 'water', 'gun'];
+    let randomIndex = Math.floor(Math.random() * alphabets.length);
+    let rochoice = aichoice[randomIndex];
+
+    //All conditions deciding "you win", "you lose" or "tie"
+
+    //all cases for snake
+    if(choice=='snake' && rochoice=='snake'){
+        alert(`it's a tie!! your score: ${score}`)
+    }
+    else if(choice=='snake' && rochoice=='water'){
+        alert(`you win your score: ${++score}`) 
+    }
+    else if(choice=='snake' && rochoice=='gun'){
+        alert(`you lose your score: ${score}`)
+    }
+    //all cases for water
+    else if(choice=='water' && rochoice=='water'){
+        alert(`it's a tie your score: ${score}`)
+    }
+    else if(choice=='water' && rochoice=='snake'){
+        alert(`you lose your score: ${score}`)
+    }
+    else if(choice=='water' && rochoice=='gun'){
+        alert(`you win your score: ${++score}`)   
+    }
+    //all cases for gun
+    else if(choice=='gun' && rochoice=='water'){
+        alert(`you lose: your score: ${score}`)
+    }
+    else if(choice=='gun' && rochoice=='gun'){
+        alert(`it's a tie!! your score: ${score}`)
+    }
+    else if(choice=='gun' && rochoice=='snake'){
+        alert(`you win your score: ${++score}`)       
+    }
+    // if anything else is given instead of 'snake', 'water', or 'gun' then below message will be shown
+    else{
+        alert('Kya daal rha hai bhai?? give  correct format')   
+    }
+}
+// final condition to declre the winner and further asking if you want to play again.
+    let final=score>=3? `You won your score was: ${score}`:`you lose your score was: ${score}`
+    alert(final)
+}while(confirm("do you want to play again?")==true)
